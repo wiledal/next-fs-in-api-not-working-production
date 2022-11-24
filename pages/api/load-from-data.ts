@@ -7,10 +7,10 @@ type Data = {
   name: string;
 };
 
+const somePath = path.join(process.cwd(), "/data/some-file.json");
+
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const r = await fs
-    .readFile(path.join(process.cwd(), "/data/Some-file.json"), "utf8")
-    .then((p) => JSON.parse(p));
+  const r = await fs.readFile(somePath, "utf8").then((p) => JSON.parse(p));
 
   res.status(200).json(r);
 };
