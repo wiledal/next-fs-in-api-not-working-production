@@ -8,7 +8,7 @@ type Data = {
 };
 
 const r = fs
-  .readFile(path.join(process.cwd(), `/public/some-file.json`), "utf8")
+  .readFile(path.join(process.cwd(), `/public/some-File.json`), "utf8")
   .then((p) => JSON.parse(p));
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
