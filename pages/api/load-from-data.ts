@@ -7,12 +7,12 @@ type Data = {
   name: string;
 };
 
-const somePath = path.join(process.cwd(), "/data/some-file.json");
+const somePath = path.join(process.cwd(), "/data/suprapower-regular.woff");
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const r = await fs.readFile(somePath, "utf8").then((p) => JSON.parse(p));
+  const r = await await fs.readFile(somePath, null);
 
-  res.status(200).json(r);
+  res.status(200).end(r);
 };
 
 export default handler;
