@@ -10,7 +10,7 @@ type Data = {
 /* prettier-ignore */
 const somePath = path.join(
   process.cwd(), 
-  "/data/some-file.json"
+  "/data/deeper/some-file.json"
 );
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
