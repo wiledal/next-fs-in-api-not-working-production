@@ -7,12 +7,12 @@ type Data = {
   name: string;
 };
 
-const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const r = await fs
-    .readFile(path.join(process.cwd(), `/public/some-file.json`), "utf8")
-    .then((p) => JSON.parse(p));
+const r = fs
+  .readFile(path.join(process.cwd(), `/public/some-file.json`), "utf8")
+  .then((p) => JSON.parse(p));
 
-  res.status(200).json(r);
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  res.status(200).json(await r);
 };
 
 export default handler;
