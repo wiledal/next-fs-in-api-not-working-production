@@ -7,10 +7,14 @@ type Data = {
   name: string;
 };
 
-const somePath = path.join(process.cwd(), "/data/suprapower-regular.woff");
+/* prettier-ignore */
+const somePath = path.join(
+  process.cwd(), 
+  "/data/some-file.json"
+);
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const r = await await fs.readFile(somePath, null);
+  const r = await fs.readFile(somePath, "utf8");
 
   res.status(200).end(r);
 };
